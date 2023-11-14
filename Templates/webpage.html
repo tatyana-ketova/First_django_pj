@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Webpage</title>
+</head>
+<body>
+
+<h1>Here are your access records:</h1>
+<table>
+    <thead>
+            <tr>
+                <th>Site Name</th>
+                <th>Access Date</th>
+            </tr>
+    </thead>
+    <tbody>
+            {% for webpage in webpages %}
+                <tr>
+                    <td>{{ webpage.name }}</td>
+
+                    <td>
+                        {% for access_record in access_records %}
+                            {% if access_record.name == webpage %}
+                                {{ access_record.date }}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+    </tbody>
+
+
+</table>
+</body>
+</html>
